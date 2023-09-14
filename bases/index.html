@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Intro</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="myApp">
+        <h1>{{ quote }}</h1>
+        <p> {{ author }} </p> <!-- viene del componente app.js -->
+        <button v-on:click="changeQuote"> <!-- v-on:click="changeQuote" lo llamamos para que lea lo que queremos 
+            hacer en el button, la funcion changeQuote esta definida en el componente app.js y 
+            es quien tiene la funcion del button --> <!-- Es un evento -->
+            Change quote
+        </button>
+    </div>
+    
+
+     <script src="app.js"></script> <!--aca estamos importando componente app.js -->
+</body>
+</html>

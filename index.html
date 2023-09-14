@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Intro</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="myApp"> 
+        <h1>Batman quotes <small>{{ newQuote }}</small></h1><!-- Aca estamos haciendo relacion con newQuote que esta en app.js. Vamos a ver lo que se escriba en el input sincronicamente aca -->
+        <input 
+            type="text"
+            v-model="newQuote"
+            v-on:keypress.enter="addQuote" 
+        > <!-- input tipo texto, campo para ingregar caracteres, v-model tiene bidirecciones, realiza la accion sincronicamente, es decir si yo estoy escribiendo deltro del input y tambien llama a newQuote en otro lado, lo que escriba en el imput tambien se va a ver reflejado donde es llamado newQuote-->
+            <!-- v-on: espera un evento para ejecutarlo. En este caso le pasos enter, cada vez que escriba algo en el input y presione enter se ejecuta la accion-->
+        <hr> <!--Hace horizontal el input-->
+        <ul>
+            <li v-for="({quote, author}, index) in quotes">
+                <span>{{ index  + 1}} {{ quote }}</span> 
+                <!-- <blockquote v-if="author">-{{ author }}</blockquote> --> <!-- v-if(condicion) si tengo un author que se muestro, sino no se muestra -->
+                <blockquote v-show="author">-{{ author }}</blockquote> <!-- cumple la misma funcion que v-if pero la diferencia es que hace invisible el elemento, que en este caso es author y como no tiene autor lo deja vacio pero no lo muestra -->
+            </li> 
+        </ul>    
+    </div>
+    
+
+     <script src="app.js"></script> 
+</body>
+</html>
